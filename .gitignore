@@ -1,0 +1,43 @@
+# ========================
+# Oracle / Database
+# ========================
+*.dbf
+*.ctl
+*.log
+*.trc
+*.aud
+*.bad
+*.dmp
+*.exp
+*.imp
+
+# ========================
+# Credentials / Secrets
+# ========================
+*.env
+secrets/
+passwords.txt
+
+# ========================
+# Python
+# ========================
+__pycache__/
+*.pyc
+*.pyo
+*.venv
+venv/
+
+# ========================
+# OS / Editors
+# ========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ========================
+# Temporary files
+# ========================
+tmp/
+*.tmp
+
