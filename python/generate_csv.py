@@ -1,6 +1,6 @@
 import csv
 import random
-import hashlib
+from hash_utils import generate_vote_hash
 from datetime import datetime, timedelta
 
 NB_VOTERS = 8000
@@ -41,18 +41,7 @@ for voter_id in range(1, NB_VOTERS + 1):
     )
 
     hash_input = f"{voter_id}{candidate_id}{vote_time}".encode("utf-8")
-    vote_hash = hashlib.sha256(hash_input).hexdigest()
-
-    rows.append([
-        voter_id,
-        first_name,
-        last_name,
-        region,
-        ELECTION_YEAR,
-        candidate_id,
-        vote_time.strftime("%Y-%m-%d %H:%M:%S"),
-        vote_hash
-    ])
+    vote_hash = generate_vote_hash(voter_id, candidate_id, vote_time)
 
 with open("online_voting_maroc_2021.csv", "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
